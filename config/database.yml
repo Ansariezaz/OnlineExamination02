@@ -7,8 +7,9 @@
 default: &default
   adapter: postgresql
   database: devise_session
-  username: tanzeel
-  password: tanzeel1234
+  username: postgres
+  password: postgres
+  host: localhost
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 

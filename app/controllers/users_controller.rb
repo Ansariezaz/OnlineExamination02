@@ -12,9 +12,13 @@ class UsersController < ApplicationController
         @assign.each do |a|
             ans = ans.merge({"#{a.id}" => a.answer})
         end
-        res.each do |id, choice|
-            if ans[id] == choice
-                score += 10
+        if res.blank?
+            redirect_to result_path and return
+        else
+            res.each do |id, choice|
+                if ans[id] == choice
+                    score += 10
+                end
             end
         end
         @student = User.find(current_user.id)
